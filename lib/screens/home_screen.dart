@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 120.0),
-            child: Text('What you would like to find',
+            child: Text('What you would like to finds',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           ),
           SizedBox(height: 20.00),
