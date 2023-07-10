@@ -1,3 +1,4 @@
+import 'package:design/widgets/DestinationCarousel.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   _buildIcon(int index) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         setState(() {
           selectedIndex = index;
         });
@@ -27,10 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 60,
         width: 60,
         decoration: BoxDecoration(
-            color: selectedIndex == index ? Theme.of(context).secondaryHeaderColor : Color(0xFFE7EBEE),
+            color: selectedIndex == index
+                ? Theme.of(context).secondaryHeaderColor
+                : Color(0xFFE7EBEE),
             borderRadius: BorderRadius.circular(30)),
-        child:
-            Icon(_icons[index], size: 25, color: Theme.of(context).primaryColor),
+        child: Icon(_icons[index],
+            size: 25,
+            color: selectedIndex == index
+                ? Theme.of(context).primaryColor
+                : Color(0xFFB4C1C4)),
       ),
     );
   }
@@ -48,16 +54,18 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text('What you would like to find',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           ),
-          SizedBox(height:20.00),
+          SizedBox(height: 20.00),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              for(int i = 0;i<_icons.length; i++) ... [
+              for (int i = 0; i < _icons.length; i++) ...[
                 _buildIcon(i),
               ]
             ],
-          )
+          ),
           // _buildIcon(0),
+          SizedBox(height: 20,),
+          DestinationCarousel(),
         ],
       ),
     )));
